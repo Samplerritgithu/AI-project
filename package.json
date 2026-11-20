@@ -1,0 +1,17 @@
+{
+  "name": "knowledge-inbox",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client \"npm run dev -w server\" \"npm run dev -w client\"",
+    "test": "npm test -w server",
+    "build": "npm run build -w client",
+    "start": "npm run build -w client && npm start -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
